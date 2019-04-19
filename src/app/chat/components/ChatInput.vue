@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     postMessage() {
-      if (this.text.length !== 0 && !this.isOnlySpaceString()) {
+      if (this.text.length !== 0 && !this.isOnlySpaceChar()) {
         this.$emit("onMessagePosted", {
           id: this.messages[this.messages.length - 1].id + 1,
           created_at: new Date().toLocaleString(),
@@ -29,7 +29,7 @@ export default {
       document.querySelector(".chat-input__input").value = "";
       this.text = "";
     },
-    isOnlySpaceString() {
+    isOnlySpaceChar() {
       return /^\s+$/.test(this.text);
     }
   }
@@ -54,7 +54,9 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
+  background: beige;
   border-top: 1px solid #000;
 }
 

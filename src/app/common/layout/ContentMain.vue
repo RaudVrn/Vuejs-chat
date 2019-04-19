@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div>
-    <p>работает мейн</p>
+    <p>Main</p>
   </div>
 </template>
 

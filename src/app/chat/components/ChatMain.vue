@@ -48,16 +48,18 @@ export default {
 
 <template>
   <aside class="chat">
-    <ul class="chat__message-list">
-      <li
-        class="chat__message-item"
-        v-for="(message, index) in messages"
-        :key="index"
-      >
-        <chat-message :message="message" :currentUser="currentUser">
-        </chat-message>
-      </li>
-    </ul>
+    <div class="chat__message-list-wrapper">
+      <ul class="chat__message-list">
+        <li
+          class="chat__message-item"
+          v-for="(message, index) in messages"
+          :key="index"
+        >
+          <chat-message :message="message" :currentUser="currentUser">
+          </chat-message>
+        </li>
+      </ul>
+    </div>
     <chat-input
       :messages="messages"
       :currentUser="currentUser"
@@ -72,6 +74,10 @@ aside {
   position: relative;
   height: 400px;
   border: 1px solid #000;
+  overflow-y: hidden;
+}
+.chat__message-list-wrapper {
+  height: 88%;
   overflow-y: scroll;
 }
 .chat__message-list {
