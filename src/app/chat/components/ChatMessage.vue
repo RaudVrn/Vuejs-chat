@@ -50,5 +50,7 @@ export default {
 .message__text {
   color: #222;
   margin: 0;
+  overflow-wrap: break-word;
+  white-space: pre-line;
 }
 </style>

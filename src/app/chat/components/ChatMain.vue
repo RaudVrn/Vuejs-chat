@@ -42,6 +42,12 @@ export default {
     addToMessages($event) {
       this.messages.push($event);
     }
+  },
+  updated() {
+    let messagesListWrapper = document.querySelector(
+      ".chat__message-list-wrapper"
+    );
+    messagesListWrapper.scrollTop = messagesListWrapper.scrollHeight;
   }
 };
 </script>
@@ -76,10 +82,12 @@ aside {
   border: 1px solid #000;
   overflow-y: hidden;
 }
+
 .chat__message-list-wrapper {
-  height: 88%;
+  height: 355px;
   overflow-y: scroll;
 }
+
 .chat__message-list {
   list-style: none;
   padding: 5px;
@@ -88,6 +96,7 @@ aside {
 
 .chat__message-item {
   margin-bottom: 15px;
+
   &:not(:last-child) {
     border-bottom: 1px solid lightgrey;
   }

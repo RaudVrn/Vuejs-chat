@@ -25,9 +25,9 @@ export default {
           created_by: this.currentUser,
           text: this.text
         });
+        document.querySelector(".chat-input__input").value = "";
+        this.text = "";
       }
-      document.querySelector(".chat-input__input").value = "";
-      this.text = "";
     },
     isOnlySpaceChar() {
       return /^\s+$/.test(this.text);
@@ -39,12 +39,26 @@ export default {
 <template>
   <div class="chat-input__wrapper">
     <form class="chat-input__form">
-      <input
+      <textarea
         class="chat-input__input"
         placeholder="Введите сообщение"
         v-model="text"
-      />
-      <button class="chat-input__button" @click.prevent="postMessage">></button>
+        @keydown.enter.exact.prevent="postMessage"
+      ></textarea>
+      <!--<input
+        class="chat-input__input"
+        placeholder="Введите сообщение"
+        v-model="text"
+        @keydown.alt.enter.prevent
+        @keydown.ctrl.enter.prevent
+        @keydown.shift.enter.exact.prevent="function() {
+            this.text = this.text + '\\n';
+        }"
+        @keydown.enter.exact.prevent="postMessage"
+      />-->
+      <button class="chat-input__button" @click.prevent="postMessage">
+        >
+      </button>
     </form>
   </div>
 </template>
@@ -68,7 +82,12 @@ export default {
 }
 
 .chat-input__input {
+  padding-right: 5px;
+  padding-left: 5px;
   width: 250px;
   height: 20px;
+  resize: none;
+  font-size: 16px;
+  text-align: right;
 }
 </style>
