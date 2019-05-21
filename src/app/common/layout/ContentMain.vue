@@ -5,14 +5,15 @@ export default {
 </script>
 
 <template>
-  <div>
-    <p>Main</p>
+  <div class="content-main-wrapper">
+    <router-view></router-view>
   </div>
 </template>
 
 <style scoped>
-div {
+.content-main-wrapper {
   border: 1px solid #000;
   height: 600px;
+  overflow-y: scroll;
 }
 </style>
